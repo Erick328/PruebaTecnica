@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.ejercicio_2";
+option java_outer_classname = "UserServiceProto";
+
+service UserService {
+    rpc GetUser (GetUserRequest) returns (UserResponse);
+    rpc ListUsers (ListUsersRequest) returns (stream UserResponse);
+    rpc UserActions (stream UserAction) returns (stream UserUpdate);
+}
+
+message GetUserRequest {
+    string user_id = 1;
+}
+
+message UserResponse {
+    string user_id = 1;
+    string name = 2;
+    string email = 3;
+}
+
+message ListUsersRequest {
+    string filter = 1; // Filtro opcional para listar usuarios
+}
+
+message UserAction {
+    string user_id = 1;
+    string action = 2; // Ejemplo: "login", "logout", "update"
+}
+
+message UserUpdate {
+    string user_id = 1;
+    string status = 2; // Ejemplo: "logged_in", "logged_out", "updated"
+}
