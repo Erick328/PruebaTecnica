@@ -10,6 +10,7 @@ Este repositorio contiene dos ejercicios que demuestran el uso de gRPC en Kotlin
    ```bash
    ./gradlew build
    ./gradlew run --args='com.example.user.UserServer'
+   ./gradlew run --args='com.example.user.UserClient'
 ### Ejercicio 2: Transmision del servidor
 
 1. **Compilar el proyecto:**
